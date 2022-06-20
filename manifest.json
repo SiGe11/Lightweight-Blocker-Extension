@@ -1,6 +1,6 @@
 {
   "name": "Lightweight Blocker",
-  "description": "A lightweight and secure blocker, which respects your privacy.",
+  "description": "A lightweight and secure site blocker, which respects your privacy.",
   "version": "1.0",
   "manifest_version": 3,
   "background": {
