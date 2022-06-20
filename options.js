@@ -10,7 +10,7 @@ function constructOptions() {
 }
 
 function sanitzeInput(str) {
-    if (str.length>10000) {
+    if (str.length > 10000) {
         str = str.slice(0, 10000)
     }
     return str.replace(/[^a-zA-Z . //]/g, "")
