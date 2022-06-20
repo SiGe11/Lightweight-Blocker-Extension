@@ -1,11 +1,11 @@
 # Lightweight Blocker
 
-A minimalist, lightweight site blocker extension for Google Chrome, with privacy and security in mind.
+A minimalist, lightweight site blocker extension for Google Chrome, with privacy and security in mind, for productivity.
 
 - minimalist: the UI and the feature set are extremely basic. The blocker needs to do one thing and do it well: blocking unwanted pages.
 - lightweight: the extension needs to be extremely fast: we don't want to wait for it during visiting pages.
 - private: the extension doesn't collect any data.
-- secure: there should be no security holes and issues with the application.
+- secure: there should be no security holes and security issues with the application.
 
 To ensure these quadruple attributes we don't use any third-party library and in every aspect, we had in mind the
 simplicity and efficacy. In that way, we can ensure that the extension doesn't have security holes or doesn't collect any
