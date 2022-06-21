@@ -19,6 +19,10 @@ async function checkBlocking() {
 
         let tab = await getCurrentTab();
         let tabDomain = new URL(tab.url).hostname
+        console.log(tabDomain)
+        if (tabDomain.trim().length === 0) {
+            return
+        }
         if (actualUrlsToBlock.includes(tabDomain)) {
             await blockUrls()
         }
