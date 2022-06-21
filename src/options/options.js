@@ -9,15 +9,15 @@ function constructOptions() {
     saveInputUrl.addEventListener('click', saveUrl)
 }
 
-function sanitzeInput(str) {
+function sanitizeInput(str) {
     if (str.length > 10000) {
         str = str.slice(0, 10000)
     }
-    return str.replace(/[^a-zA-Z . //]/g, "")
+    return str.replace(/[^a-zA-Z , ; . //]/g, "")
 }
 
 function saveUrl() {
-    inputUrl.value = sanitzeInput(inputUrl.value)
+    inputUrl.value = sanitizeInput(inputUrl.value)
     chrome.storage.sync.set({urlsToBlock: inputUrl.value})
 }
 
