@@ -32,6 +32,5 @@ async function blockUrls() {
 async function getCurrentTab() {
     let queryOptions = {active: true, lastFocusedWindow: true};
     let [tab] = await chrome.tabs.query(queryOptions);
-    console.log(tab.url)
     return tab
 }
