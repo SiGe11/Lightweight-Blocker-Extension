@@ -16,7 +16,7 @@ The whole extension is open source, under MIT license, at: https://github.com/Si
 ## Configure
 One can set up pages to block from the Options menu. (Right-click on the extension's icon.)
 You can list the pages to be blocked in the text area. These can be separated with any kind of separator (space, comma,
-semicolon, etc). The blocker distinguishes between subdomains.
+semicolon, etc). The blocker distinguishes between subdomains. You should specify all subdomains, even 'www'.
 
 By default, the blocker is inactive. You can activate it by left-clicking on the icon of the extension and clicking on the
 extension's current status.
