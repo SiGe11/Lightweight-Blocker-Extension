@@ -13,7 +13,7 @@ function sanitizeInput(str) {
     if (str.length > 10000) {
         str = str.slice(0, 10000)
     }
-    return str.replace(/[^a-zA-Z , ; . //]/g, "")
+    return str.replace(/[^a-zA-Z\d-._~:/?#[\]@!$&'()*+,;= ]/g, "")
 }
 
 function saveUrl() {
