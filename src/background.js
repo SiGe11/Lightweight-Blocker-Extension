@@ -11,13 +11,13 @@ browser.tabs.onUpdated.addListener(async function (tabId, changeInfo, tab) {
 })
 
 async function checkBlocking() {
-    browser.storage.sync.get(['urlsToBlock'], async function (result) {
+    browser.storage.local.get(['urlsToBlock'], async function (result) {
         let actualUrlsToBlock = await result.urlsToBlock
         if (actualUrlsToBlock === undefined) {
             actualUrlsToBlock = ''
         }
 
-        let tab = await getCurrentTab();
+        let tab = getCurrentTab();
         let tabDomain = new URL(tab.url).hostname
         if (tabDomain.trim().length === 0) {
             return
@@ -32,8 +32,11 @@ async function blockUrls() {
     browser.tabs.update({url: "assets/blocked.html"})
 }
 
-async function getCurrentTab() {
+ function getCurrentTab() {
+    let tab;
     let queryOptions = {active: true, currentWindow: true};
-    let [tab] = await browser.tabs.query(queryOptions);
-    return tab[0];
+    browser.tabs.query(queryOptions).then((tabs) => {
+        tab = tabs[0];
+    })
+    return tab;
 }
