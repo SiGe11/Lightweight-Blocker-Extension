@@ -1,5 +1,5 @@
 function constructOptions() {
-    chrome.storage.sync.get(['urlsToBlock'], function (result) {
+    browser.storage.sync.get(['urlsToBlock'], function (result) {
         let blockingUrls = result.urlsToBlock
         if (blockingUrls === undefined) {
             blockingUrls = ''
@@ -18,7 +18,7 @@ function sanitizeInput(str) {
 
 function saveUrl() {
     inputUrl.value = sanitizeInput(inputUrl.value)
-    chrome.storage.sync.set({urlsToBlock: inputUrl.value})
+    browser.storage.sync.set({urlsToBlock: inputUrl.value})
 }
 
 constructOptions()
