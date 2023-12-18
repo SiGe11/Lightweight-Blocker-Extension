@@ -1,7 +1,7 @@
 {
   "name": "Lightweight Blocker",
   "description": "A lightweight and secure site blocker, which respects your privacy.",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "manifest_version": 3,
   "background": {
     "service_worker": "/src/background.js"
