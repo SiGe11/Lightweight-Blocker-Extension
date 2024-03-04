@@ -1,7 +1,8 @@
 /* Common Styles */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Georgia', sans-serif;
     margin: 20px;
+    text-align: center;
 }
 
 /* Popup Styles */
@@ -19,19 +20,22 @@ body {
     margin-bottom: 20px;
 }
 
-p {
+a, p {
     font-weight: bold;
+    font-size: 18px;
+    color: #ff913b;
 }
 
+
 textarea {
-    width: 100%;
+    width: 80%;
     height: 100px;
     resize: vertical;
 }
 
 #saveInputUrl {
     padding: 10px;
-    background-color: #2ecc71;
+    background-color: #209e55;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -43,13 +47,5 @@ textarea {
     color: #fff;
 }
 
-/* Blocked Styles */
-body {
-    text-align: center;
-}
 
-p {
-    font-size: 18px;
-    color: #e74c3c;
-    font-weight: bold;
-}
+
