@@ -18,18 +18,19 @@ async function checkBlocking() {
         }
 
         let tab = await getCurrentTab();
-        let tabDomain = new URL(tab.url).hostname
+        tab = new URL(tab.url)
+        let tabDomain = tab.hostname
         if (tabDomain.trim().length === 0) {
             return
         }
         if (actualUrlsToBlock.includes(tabDomain)) {
-            await blockUrls()
+            await blockUrls(tab)
         }
     });
 }
 
-async function blockUrls() {
-    chrome.tabs.update({url: "assets/blocked.html"})
+async function blockUrls(blockedUrl) {
+    chrome.tabs.update({url: `src/blocked/blocked.html?page=${blockedUrl}`})
 }
 
 async function getCurrentTab() {
