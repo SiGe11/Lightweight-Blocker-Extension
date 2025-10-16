@@ -27,7 +27,10 @@ async function checkBlocking() {
 }
 
 async function blockUrls(blockedUrl) {
-    await chrome.tabs.update({url: `src/blocked/blocked.html?page=${blockedUrl}`});
+    const blockedPage = chrome.runtime.getURL(
+        `src/blocked/blocked.html?page=${encodeURIComponent(blockedUrl.href)}`
+    );
+    await chrome.tabs.update({url: blockedPage});
 }
 
 async function getCurrentTab() {
