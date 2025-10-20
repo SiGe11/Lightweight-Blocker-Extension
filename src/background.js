@@ -1,36 +1,35 @@
-chrome.tabs.onUpdated.addListener(async function (tabId, changeInfo, tab) {
-    if (changeInfo.status === 'complete' && tab.active) {
+chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
+    const navUrl = changeInfo && changeInfo.url ? changeInfo.url : (tab && tab.url);
+    if (!navUrl) return;
 
-        chrome.storage.local.get(['isEnabled'], async function (result) {
-            if (result.isEnabled) {
-                checkBlocking();
-            }
-        })
+    if (tab && !tab.active) return;
 
-    }
-})
+    chrome.storage.local.get(['isEnabled'], function (result) {
+        if (result.isEnabled) {
+            checkBlocking(tabId, navUrl);
+        }
+    });
+});
 
-async function checkBlocking() {
+async function checkBlocking(tabId, navUrl) {
     chrome.storage.local.get(['urlsToBlock'], async function (result) {
         let urlsToBlock = new Set(result.urlsToBlock || []);
-
-        let tab = await getCurrentTab();
-        tab = new URL(tab.url);
-        let tabDomain = tab.hostname;
-        if (tabDomain.trim().length === 0) {
+        const urlObj = new URL(navUrl);
+        let tabDomain = urlObj.hostname;
+        if (!tabDomain || tabDomain.trim().length === 0) {
             return;
         }
         if (urlsToBlock.has(tabDomain)) {
-            await blockUrls(tab);
+            await blockUrls(tabId, navUrl);
         }
     });
 }
 
-async function blockUrls(blockedUrl) {
+async function blockUrls(blockedTabId, originalUrl) {
     const blockedPage = chrome.runtime.getURL(
-        `src/blocked/blocked.html?page=${encodeURIComponent(blockedUrl.href)}`
+        `src/blocked/blocked.html?page=${encodeURIComponent(originalUrl)}`
     );
-    await chrome.tabs.update({url: blockedPage});
+    await chrome.tabs.update(blockedTabId, {url: blockedPage});
 }
 
 async function getCurrentTab() {

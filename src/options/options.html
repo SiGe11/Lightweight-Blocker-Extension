@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <title>LB Options</title>
         <link rel="stylesheet" type="text/css" href="../../assets/styles.css">
@@ -7,9 +7,10 @@
     <body>
         <div id="buttonDiv"></div>
         <div>
-            <p>URLs to block:</p>
+            <label for="inputUrl">URLs to block:</label>
         </div>
         <textarea id="inputUrl"></textarea>
+        <div class="note">You should specify subdomains separately, including 'www'.</div>
         <br/>
         <button id="saveInputUrl">Save</button>
         <div id="saveMessage"></div>
