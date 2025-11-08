@@ -1,0 +1,55 @@
+/* Common Styles */
+body {
+    font-family: 'Georgia', serif;
+    margin: 20px;
+    text-align: center;
+}
+
+/* Popup Styles */
+#currentStatus {
+    padding: 10px;
+    background-color: #1d70af;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Options Styles */
+#buttonDiv {
+    margin-bottom: 20px;
+}
+
+a, p, label {
+    font-weight: bold;
+    font-size: 18px;
+    color: #016c49;
+}
+
+
+textarea {
+    width: 80%;
+    height: 100px;
+    resize: vertical;
+}
+
+.note {
+    width: 80%;
+    margin: 8px auto 0;
+    text-align: left;
+}
+
+#saveInputUrl {
+    padding: 10px;
+    background-color: #016c49;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#saveInputUrl:active {
+    background-color: #2d9357;
+    color: #fff;
+}
+
