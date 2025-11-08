@@ -2,6 +2,8 @@
 
 A minimalist, lightweight site blocker extension for Google Chrome, with privacy and security in mind, for productivity.
 
+Add to Firefox: https://addons.mozilla.org/en-US/firefox/addon/lightweight-blocker/
+
 Add to Chrome: https://chrome.google.com/webstore/detail/lightweight-blocker/gppkhppnogcgodjackcgcfoepdngfcpm
 
 - minimalist: the UI and the feature set are extremely basic. The blocker needs to do one thing and do it well: blocking unwanted pages.
